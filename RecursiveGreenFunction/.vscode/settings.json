@@ -1,0 +1,11 @@
+{
+    "julia.environmentPath": "${workspaceFolder}",
+    "julia.NumThreads": "auto",
+    "julia.execution.resultType": "inline",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "[julia]": {
+        "editor.formatOnSave": false,
+        "editor.tabSize": 4
+    }
+}

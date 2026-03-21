@@ -1,0 +1,5 @@
+task,time_ms,n_repeats,notes
+surface_gf_single,31.72134,20,"W=50 Lopez-Sancho V2"
+rgf_pipeline_single,214.68210000000002,5,"W=50 L=201 full pipeline"
+spectrum_total_s,74.9465037,1,"401 pts W=50 L=201"
+spectrum_per_point_ms,186.89901172069824,401,""
