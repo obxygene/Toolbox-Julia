@@ -107,16 +107,14 @@ function six_terminal_rgf(H_layer::AbstractMatrix, V_hop::AbstractMatrix,
 
     Gammas = [Gamma1, Gamma2, Gamma3, Gamma4, Gamma5, Gamma6]
 
-    # Fisher-Lee transmission matrix
+    # Fisher-Lee transmission matrix: T_ij = Tr[Γ_i G Γ_j G†]
     GC_dag = G_C'
     T_mat = zeros(6, 6)
 
     for ii in 1:6
-        GGi = Gammas[ii] * G_C
         for jj in 1:6
             ii == jj && continue
-            GGj = Gammas[jj] * G_C
-            T_mat[ii, jj] = real(sum(GGi .* conj.(GGj)))
+            T_mat[ii, jj] = real(tr(Gammas[ii] * G_C * Gammas[jj] * GC_dag))
         end
     end
 

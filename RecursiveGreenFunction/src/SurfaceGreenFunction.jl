@@ -37,7 +37,7 @@ function surface_green_function_v2(H00::AbstractMatrix, V::AbstractMatrix,
     err = Inf
 
     while abs(err) > accuracy
-        err_norm = norm(Sigma)  # Frobenius norm
+        Sigma_old = copy(Sigma)
 
         g_temp = ((omega + im*eta) * Iden - Sigma_tilde) \ Iden
 
@@ -47,7 +47,7 @@ function surface_green_function_v2(H00::AbstractMatrix, V::AbstractMatrix,
         alpha = alpha * g_temp * alpha
         beta  = beta  * g_temp * beta
 
-        err = err_norm - norm(Sigma)
+        err = norm(Sigma - Sigma_old)
         count += 1
     end
 
